@@ -175,7 +175,7 @@ func (mod *ArpSpoofer) Start() error {
 		gwIP := mod.Session.Gateway.IP
 		myMAC := mod.Session.Interface.HW
 		for mod.Running() {
-			mod.arpSpoofTargets(gwIP, myMAC, true, true)
+			mod.arpSpoofTargets(gwIP, myMAC, true, false)
 			for _, address := range neighbours {
 				if !mod.Session.Skip(address) {
 					mod.arpSpoofTargets(address, myMAC, true, false)
