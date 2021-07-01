@@ -3,7 +3,6 @@ package js
 import (
 	"github.com/evilsocket/islazy/log"
 	"github.com/evilsocket/islazy/plugin"
-
 	"github.com/robertkrimen/otto"
 )
 

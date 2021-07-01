@@ -3,12 +3,13 @@ package js
 import (
 	"bytes"
 	"fmt"
-	"github.com/robertkrimen/otto"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/robertkrimen/otto"
 )
 
 type httpPackage struct {
@@ -26,7 +27,10 @@ func (c httpPackage) Encode(s string) string {
 	return url.QueryEscape(s)
 }
 
-func (c httpPackage) Request(method string, uri string, headers map[string]string, form map[string]string, json string) httpResponse {
+func (c httpPackage) Request(method string, uri string,
+	headers map[string]string,
+	form map[string]string,
+	json string) httpResponse {
 	var reader io.Reader
 
 	if form != nil {

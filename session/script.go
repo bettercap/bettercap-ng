@@ -2,15 +2,17 @@ package session
 
 import (
 	"fmt"
-	"github.com/bettercap/bettercap/caplets"
-	_ "github.com/bettercap/bettercap/js"
-	"github.com/evilsocket/islazy/fs"
-	"github.com/evilsocket/islazy/plugin"
-	"github.com/evilsocket/islazy/str"
 	"io/ioutil"
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	"github.com/bettercap/bettercap/caplets"
+	_ "github.com/bettercap/bettercap/js"
+
+	"github.com/evilsocket/islazy/fs"
+	"github.com/evilsocket/islazy/plugin"
+	"github.com/evilsocket/islazy/str"
 )
 
 // require("telegram.js")
@@ -37,7 +39,7 @@ func preprocess(basePath string, code string, level int) (string, error) {
 				filepath.Join(caplets.InstallBase, fileName),
 			}
 
-			if strings.Contains(fileName, ".js") == false {
+			if !strings.Contains(fileName, ".js") {
 				searchPaths = append(searchPaths, []string{
 					filepath.Join(basePath, fileName) + ".js",
 					filepath.Join(caplets.InstallBase, fileName) + ".js",

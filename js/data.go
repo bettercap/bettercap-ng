@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/base64"
+
 	"github.com/robertkrimen/otto"
 )
 
@@ -13,6 +14,7 @@ func btoa(call otto.FunctionCall) otto.Value {
 	if err != nil {
 		return ReportError("Could not convert to string: %s", varValue)
 	}
+
 	return v
 }
 
@@ -21,10 +23,12 @@ func atob(call otto.FunctionCall) otto.Value {
 	if err != nil {
 		return ReportError("Could not decode string: %s", call.Argument(0).String())
 	}
+
 	v, err := otto.ToValue(string(varValue))
 	if err != nil {
 		return ReportError("Could not convert to string: %s", varValue)
 	}
+
 	return v
 }
 
